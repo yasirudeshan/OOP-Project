@@ -9,33 +9,31 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/login")
+@WebServlet("/view")
 
-public class LoginServlet extends HttpServlet {
+public class viewticketServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String username = request.getParameter("uid");
-		String password = request.getParameter("pwd");
+		String id = request.getParameter("id");
 		
-		CustomerDBUtil cdbu = new CustomerDBUtil();
+		
+		TicketdbUtil ticket3 = new TicketdbUtil();
+		
+		//ticket3.getinfo(id);
 		
 		try {
-			List<Customer> cusDetails = cdbu.validate(username, password);
-			request.setAttribute("cusDetails", cusDetails);
+			List<Ticket> getTicket = ticket3.getinfo(id);
+			request.setAttribute("getTicket", getTicket);
 			
-			RequestDispatcher dis = request.getRequestDispatcher("useraccount.jsp"); 
+			RequestDispatcher dis = request.getRequestDispatcher("userticket.jsp"); 
 			dis.forward(request, response);
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
-		
-		
-		
-		
+	}
 	}
 
-}
+

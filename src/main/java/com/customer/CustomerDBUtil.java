@@ -49,36 +49,5 @@ public class CustomerDBUtil {
 		return cus;
 	}
 	
-	public boolean addticket(String name, String email, String id, String contact, String subject, String description){
-		
-		boolean isSuccess = false;
-		
-		//create database connection
-				String url = "jdbc:mysql://localhost:3306/hotel";
-				String user = "root";
-				String password = "password";
-				
-				try {
-					Class.forName("com.mysql.jdbc.Driver");
-					
-					Connection con = DriverManager.getConnection(url, user, password);
-					Statement stmt = con.createStatement();
-					
-					String sql = "INSERT INTO hotel.addticket VALUES(0, '"+name+"', '"+email+"','"+id+"','"+contact+"','"+subject+"','"+description+"')";
-					int rs = stmt.executeUpdate(sql); //if connect return 1. if not return 0;
-					
-					//Data Successfully Inserted?
-					if(rs > 0) 
-						isSuccess = true;
-					else
-						isSuccess = false;
-					
-					
-					
-				}catch(Exception e) {
-					e.printStackTrace();
-				}
-		
-		return isSuccess;
-	}
+
 }
