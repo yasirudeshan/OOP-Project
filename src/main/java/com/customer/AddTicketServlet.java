@@ -22,7 +22,7 @@ public class AddTicketServlet extends HttpServlet {
 		String subject = request.getParameter("subject");
 		String description = request.getParameter("description");
 		
-		System.out.println("Hi");
+		
 		TicketdbUtil ticket = new TicketdbUtil();
 		
 		boolean isTrue;

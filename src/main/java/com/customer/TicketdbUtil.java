@@ -88,7 +88,7 @@ public class TicketdbUtil{
 	}
 
 
-public boolean updateTicket(String name, String email, String id, String contact, String subject , String description) {
+public boolean updateTicket(String ticketNo, String name, String email, String id, String contact, String subject , String description) {
 	
 	boolean isSuccess = false;
 	
@@ -104,7 +104,9 @@ public boolean updateTicket(String name, String email, String id, String contact
 		Connection con = DriverManager.getConnection(url, user, password);
 		Statement stmt = con.createStatement();
 		
-		String sql = "UPDATE hotel.addTicket SET name = '"+name+"', email = '"+email+"', studentID = '"+id+"', contactNo = '"+contact+"', subject = '"+subject+"', description = '"+description+"' WHERE studentID = 'IT21169144' ";
+		
+		
+		String sql = "UPDATE hotel.addTicket SET name = '"+name+"', email = '"+email+"', studentID = '"+id+"', contactNo = '"+contact+"', subject = '"+subject+"', description = '"+description+"' WHERE studentID = '"+ticketNo+"' ";
 		
 		int rs = stmt.executeUpdate(sql);
 		

@@ -11,6 +11,7 @@
 	<table border = '1'>
 	<c:forEach var = "get" items = "${getTicket}">
 	
+	<c:set var ='id' value = '${get.ticketNo}'/>
 	<c:set var ='name' value = '${get.name}'/>
 	<c:set var ='email' value = '${get.email}'/>
 	<c:set var ='id' value = '${get.id}'/>
@@ -19,21 +20,15 @@
 	<c:set var ='description' value = '${get.description}'/>
 
 	<tr>
-	
+	<td>${get.ticketNo}</td>
 	<td>${get.name}</td>
 	<td>${get.email}</td>
 	<td>${get.id}</td>
 	<td>${get.contact}</td>
 	<td>${get.subject}</td>
 	<td>${get.description}</td>
-	<td><a href='${updateticket}'><input type='button' name = 'edit' value ='Edit'></a></td>
-	<td><a href=''><input type='button' name = 'delete' value ='Delete'></a></td>
-	</tr>
-	</c:forEach>
-	
-	</table>
-	
 	<c:url value = 'updateticket.jsp' var = 'updateticket'>
+		<c:param name = 'tid' value = '${get.ticketNo}'/>
 		<c:param name = 'name' value = '${name}'/>
 		<c:param name = 'email' value = '${email}'/>
 		<c:param name = 'id' value = '${id}'/>
@@ -41,5 +36,13 @@
 		<c:param name = 'subject' value = '${subject}'/>
 		<c:param name = 'description' value = '${description}'/>
 	</c:url>
+	<td><a href='${updateticket}'><input type='button' name = 'edit' value ='Edit'></a></td>
+	<td><a href=''><input type='button' name = 'delete' value ='Delete'></a></td>
+	</tr>
+	</c:forEach>
+	
+	</table>
+	
+	
 </body>
 </html>

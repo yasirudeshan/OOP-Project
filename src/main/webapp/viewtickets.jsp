@@ -8,7 +8,7 @@
 </head>
 <body>
 	<form action = 'view' method = 'post'>
-		<input type ='text' name = 'id' value = 'id' >
+		Enter Student ID: <input type ='text' name = 'id' value = 'id' >
 		<input type = 'submit' name = 'view' value = 'View' >
 	</form>
 </body>

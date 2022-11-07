@@ -16,6 +16,7 @@ public class UpdticketServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String ticketNo = request.getParameter("tid");
 		String name = request.getParameter("name");
 		String email = request.getParameter("email");
 		String id = request.getParameter("id");
@@ -25,7 +26,7 @@ public class UpdticketServlet extends HttpServlet {
 		
 		TicketdbUtil ticket = new TicketdbUtil();
 		
-		ticket.updateTicket(name, email, id, contact, subject, description);
+		ticket.updateTicket(ticketNo, name, email, id, contact, subject, description);
 		
 		try {
 			List<Ticket> getDetails = ticket.getinfo(id);
