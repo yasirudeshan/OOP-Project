@@ -104,9 +104,8 @@ public boolean updateTicket(String ticketNo, String name, String email, String i
 		Connection con = DriverManager.getConnection(url, user, password);
 		Statement stmt = con.createStatement();
 		
-		
-		
-		String sql = "UPDATE hotel.addTicket SET name = '"+name+"', email = '"+email+"', studentID = '"+id+"', contactNo = '"+contact+"', subject = '"+subject+"', description = '"+description+"' WHERE studentID = '"+ticketNo+"' ";
+	
+		String sql = "UPDATE hotel.addTicket SET name = '"+name+"', email = '"+email+"', studentID = '"+id+"', contactNo = '"+contact+"', subject = '"+subject+"', description = '"+description+"' WHERE ticketNo = '"+ticketNo+"' ";
 		
 		int rs = stmt.executeUpdate(sql);
 		
@@ -114,6 +113,7 @@ public boolean updateTicket(String ticketNo, String name, String email, String i
 			isSuccess = true;
 		else
 			isSuccess = false;
+		
 		
 		
 	}

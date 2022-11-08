@@ -38,7 +38,7 @@ public class UpdticketServlet extends HttpServlet {
 	
 		boolean isTrue;
 		
-		isTrue = ticket.addticket(name, email, id, contact, subject, description);
+		isTrue = ticket.updateTicket(ticketNo, name, email, id, contact, subject, description);
 		
 		if(isTrue == true) {
 			RequestDispatcher dis = request.getRequestDispatcher("userticket.jsp");
