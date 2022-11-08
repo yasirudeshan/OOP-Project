@@ -36,8 +36,21 @@
 		<c:param name = 'subject' value = '${subject}'/>
 		<c:param name = 'description' value = '${description}'/>
 	</c:url>
+	
+	<c:url value = 'deleteTicket.jsp' var = 'deleteticket'>
+		<c:param name = 'tid' value = '${get.ticketNo}'/>
+		<c:param name = 'name' value = '${name}'/>
+		<c:param name = 'email' value = '${email}'/>
+		<c:param name = 'id' value = '${id}'/>
+		<c:param name = 'contact' value = '${contact}'/>
+		<c:param name = 'subject' value = '${subject}'/>
+		<c:param name = 'description' value = '${description}'/>
+	</c:url>
+	
+	
+	
 	<td><a href='${updateticket}'><input type='button' name = 'edit' value ='Edit'></a></td>
-	<td><a href=''><input type='button' name = 'delete' value ='Delete'></a></td>
+	<td><a href='${deleteticket}'><input type='button' name = 'delete' value ='Delete'></a></td>
 	</tr>
 	</c:forEach>
 	

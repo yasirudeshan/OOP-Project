@@ -86,44 +86,72 @@ public class TicketdbUtil{
 		}
 		return ticket1;
 	}
-
-
-public boolean updateTicket(String ticketNo, String name, String email, String id, String contact, String subject , String description) {
-	
-	boolean isSuccess = false;
-	
-	//create database connection
-	String url = "jdbc:mysql://localhost:3306/hotel";
-	String user = "root";
-	String password = "password";
 	
 
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-		
-		Connection con = DriverManager.getConnection(url, user, password);
-		Statement stmt = con.createStatement();
-		
+	public boolean updateTicket(String ticketNo, String name, String email, String id, String contact, String subject , String description) {
 	
-		String sql = "UPDATE hotel.addTicket SET name = '"+name+"', email = '"+email+"', studentID = '"+id+"', contactNo = '"+contact+"', subject = '"+subject+"', description = '"+description+"' WHERE ticketNo = '"+ticketNo+"' ";
+		boolean isSuccess = false;
+	
+		//create database connection
+		String url = "jdbc:mysql://localhost:3306/hotel";
+		String user = "root";
+		String password = "password";
+	
+
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
 		
-		int rs = stmt.executeUpdate(sql);
+			Connection con = DriverManager.getConnection(url, user, password);
+			Statement stmt = con.createStatement();
 		
-		if(rs > 0)
-			isSuccess = true;
-		else
-			isSuccess = false;
+			String sql = "UPDATE hotel.addticket SET name = '"+name+"', email = '"+email+"', studentID = '"+id+"', contactNo = '"+contact+"', subject = '"+subject+"', description = '"+description+"' WHERE ticketNo = '"+ticketNo+"' ";
 		
+			int rs = stmt.executeUpdate(sql);
 		
+			if(rs > 0)
+				isSuccess = true;
+			else
+				isSuccess = false;
+		}
 		
+		catch(Exception e){
+			e.printStackTrace();
+		}
+	
+		return isSuccess;
 	}
-	catch(Exception e){
-		e.printStackTrace();
-	}
-	
-	return isSuccess;
-}
 
- 
- 	
-}
+	
+	
+	public boolean deleteTicket(String ticketNo) {
+	
+		boolean isSuccess = false;
+		
+		String url = "jdbc:mysql://localhost:3306/hotel";
+		String user = "root";
+		String password = "password";
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			Connection con = DriverManager.getConnection(url, user, password);
+			Statement stmt = con.createStatement();
+			
+			String sql = "DELETE FROM hotel.addticket WHERE ticketNo = '"+ticketNo+"'";
+			int rs = stmt.executeUpdate(sql); //if connect return 1. if not return 0;
+			
+			//Data Successfully Deleted?
+			if(rs > 0) 
+				isSuccess = true;
+			else
+				isSuccess = false;
+			
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+
+		return isSuccess;
+	}
+} // end of class

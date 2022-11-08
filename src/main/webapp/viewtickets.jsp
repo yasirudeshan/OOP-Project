@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action = 'view' method = 'post'>
-		Enter Student ID: <input type ='text' name = 'id' value = 'id' >
+	<form action = 'y_view' method = 'post'>
+		Enter Student ID: <input type ='text' name = 'id'>
 		<input type = 'submit' name = 'view' value = 'View' >
 	</form>
 </body>

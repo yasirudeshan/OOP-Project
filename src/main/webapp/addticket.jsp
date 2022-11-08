@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action = "insert" method = "post">
+	<form action = "y_insert" method = "post">
 		Name : <input type = 'text' name = 'name'> <br>
 		email : <input type = 'email' name = 'email'><br>
 		Student ID : <input type = 'text' name = 'id'><br>

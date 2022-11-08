@@ -99,4 +99,14 @@
     <servlet-name>viewticketServlet</servlet-name>
     <url-pattern>/viewticketServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Deleteticket</display-name>
+    <servlet-name>Deleteticket</servlet-name>
+    <servlet-class>com.customer.Deleteticket</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Deleteticket</servlet-name>
+    <url-pattern>/Deleteticket</url-pattern>
+  </servlet-mapping>
 </web-app>
